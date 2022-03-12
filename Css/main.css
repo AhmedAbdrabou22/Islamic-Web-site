@@ -1,0 +1,410 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+body{
+    direction:rtl;
+    scroll-behavior: smooth;
+}
+
+h3{
+    text-align: center;
+    font-size: 30px;
+}
+.hr ,  .hr2{
+    height:3px;
+    background-color:#43a047;
+    margin:auto;
+}
+.hr{
+    width:50px;
+}
+.hr2{
+    width:100px;
+    margin-top:8px;
+}
+
+/*Start of style Section Header */
+.header{
+    padding:8px;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:2;
+}
+.header .bars{
+    display: none;
+}
+.header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* width:90%;
+    margin:0 auto; */
+}
+.header .container ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .container ul li{
+    margin:0px 15px;
+    cursor:pointer;
+}
+.header .container ul li::after{
+    content:"";
+    width:100%;
+    height:2px;
+    background-color: #43a047;
+}
+.hvr-underline-from-right:before{
+    background: #fff;
+    height: 2px;
+}
+.header .logo{
+    font-size:35px;
+    font-family: 'thuluth-decorated';
+}
+.header.sticky{
+    background-color:rgba(0,0,0,0.6);
+    color:#fff;
+    padding:10px;
+    transition: 0.4s all ease-in-out;
+}
+
+
+/*Start of style section main*/
+.main{
+    background-image: url(../Images/1.jpg);
+    background-position: center;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100vh;
+}
+/* .main .container{
+    width:90%;
+    margin:auto;
+} */
+.main .container .title{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    line-height:70px;
+}
+.main .container .title h2{
+    font-size:25px;
+    color:#fff;
+}
+.main .container .title .btn{
+    display: flex;
+    align-items: center;
+}
+
+.main .container .title .btn button{
+    padding:10px 20px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size:21px;
+    font-weight:400;
+    border-radius: 5px;
+    outline:none;
+}
+.main .container .title .btn button:hover{
+    color: #000;
+}
+.main .container .title .btn button i{
+    margin-right:20px;
+    font-size:25px;
+}
+.hvr-sweep-to-left:before{
+    background-color: #fff;
+}
+
+/*Start of style section Ahadith*/
+.ahadith{
+    margin-top:50px;
+}
+.ahadith .ahadithContent{
+    min-height:350px;
+    position:relative;
+    box-shadow: 3px 3px 3px 1px  #d1d9e6 inset , -3px -3px 3px 1px #d1d9e6 inset;/*inset => بتخلي الشادو داخل المربع اللي انت شغال فيه مش براا*/
+    margin-top:20px;
+    padding:50px 20px;
+    text-align: center;
+}
+.ahadith .btns .number{
+    padding:10px 20px;
+    color:#43a047;
+    box-shadow:0px 4px 20px 0px rgba(0,0,0,0.14), 0px 7px 10px -5px rgba(76,175,88,0.14);
+}
+.ahadith .btns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:20px;
+}
+.ahadith .btns div:not(.number){
+    background-color: #43a047;
+    color:white;
+    padding:10px 20px;
+    cursor:pointer;
+    border-radius:5px;
+}
+.ahadith .btns div:hover{
+    opacity:0.9;
+}
+
+/*Start of style section mohadrat*/
+.mohadrat .row{
+    display: flex;
+    align-items: flex-start;
+}
+.mohadrat .sharawy1{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    transition:0.4s all ease-in-out;
+    box-shadow: 3px 3px 3px 1px  #d1d9e6 inset, -3px -3px 3px 1px #d1d9e6 inset;
+    border-radius: 10px;
+}
+.mohadrat .sharawy1 .sha{
+    display: flex;
+    justify-content: space-between;
+    padding:10px;
+    margin-top: 5px;
+}
+
+.mohadrat .sharawy1 .sha img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-right: auto;
+}
+.mohadrat .sharawy1:hover{
+    transform:scale(0.95);
+}
+.mohadrat .left {
+    position:sticky;
+    top:0px;
+    margin-top: 10px;
+}
+.mohadrat .salah iframe{
+    border-radius: 10px;
+}
+
+
+/*Start of style section Quran*/
+.quran .content{
+    display: flex;
+    justify-content:space-evenly;
+    align-items:baseline;
+    flex-wrap:wrap;
+}
+.quran .content .surah{
+    min-height:100px;
+    min-width:190px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.4);
+    padding:10px;
+    text-align:center;
+    margin:5px auto;
+    transition: 0.4s;
+    cursor:pointer;
+}
+.quran .content .surah:hover{
+    transform: scale(1.05);
+}
+/*End of style section Quran*/
+
+/*Start of style sectio ayat-pop*/
+.ayat-pop{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:100%;
+    height:100vh;
+    z-index:2;
+    background-color:#fff;  
+    overflow-y: scroll;
+    /* display: none; */
+    transform: translateX(100%);
+}
+.ayat-pop.active{
+    /* display: block; */
+    transform: translateX(0);
+    transition: 0.7s transform ease-in-out;
+}
+.ayat-pop.active2{
+    transform: translateX(100%);
+    transition: 0.7s transform ease-in;
+}
+.ayat-pop::-webkit-scrollbar{
+    width:10px;
+    background-color:#43a047;
+}
+.ayat-pop::-webkit-scrollbar-thumb{
+    background-color: #fff;
+}
+.ayat-pop .close{
+    position:sticky;
+    top:5px;
+    right:0px;
+    width:32px;
+    height:32px;
+    border-radius: 50%;
+    box-shadow: 0 0  4px rgba(0,0,0,0.4);
+    text-align:center;
+    line-height:2;
+    cursor: pointer;
+}
+.ayat-pop .ayat{
+    padding:20px;
+    text-align: center;
+    width:90%;
+    margin:20px auto 0px ;
+    text-align:center;
+}
+.ayat-pop .ayat p{
+    border-bottom: 2px solid #43a047;
+    padding:5px;
+    width:100%;
+    text-align: center;
+    font-size: 23px;
+}
+/*End of style Section ayat-pop*/
+
+/*Start of style section prayTime*/
+.prayTime .cards{
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    flex-wrap: wrap;
+}
+.prayTime .cards .card{
+    padding:20px 30px;
+    margin:30px;
+    min-height:280px;
+    width:230px;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.4);
+    margin-bottom: 5px;
+    transition: 0.4s ease-in-out;
+}
+.prayTime .cards .card:hover{
+    transform:scale(1.1);
+}
+.prayTime .cards .card .circle{
+    margin: auto;
+    position: relative;
+    width:150px;
+    height:150px;
+    border:5px solid #43a047;
+    text-align: center;
+    border-radius:50%;
+    border-right-color: #fff;
+    box-sizing:border-box;
+    padding:50px; 
+    margin-bottom: 25px;
+}
+.prayTime .cards .card .circle p{
+    text-align: center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.prayTime .cards .card{
+    text-align: center;
+    font-weight: 900;
+    font-size: 23px;
+    margin-top:25px;
+    color: #43a047;
+}
+/*End of style section prayTime*/
+
+/*Start of style section footer*/
+.footer{
+    position: relative;
+}
+.footer .social{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background-color:#43a047;
+    position:absolute;
+    top:60%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.footer .social a{
+    margin:10px;
+    font-size:30px;
+    color:white;
+}
+/*End of style section footer*/
+
+/*Start of style scrollbtn*/
+.scrollbtn{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    position:fixed;
+    right:20px;
+    bottom:-50px;
+    color:#fff;
+    background-color: #43a047;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 1s bottom ease-in-out;
+    cursor: pointer;
+}
+
+.scrollbtn.active{
+    bottom:50px;
+}
+/*End of style scrollbtn*/
+
+
+/*Responsive*/
+@media (max-width:1024px) {
+    .header .bars{
+        display: block;
+        font-size: 25px;
+        cursor:pointer;
+    }
+    .header ul{
+        position:fixed;
+        top:72px;
+        left:0;
+        flex-direction: column;
+        width:220px;
+        background-color:rgba(0,0,0,0.6);
+        min-height:220px;
+        padding: 20px;
+        transform: translateX(-100%);
+        transition: 0.5s transform ease-in-out;
+    }
+    .header ul.active2{
+        transform: translateX(0);
+    }
+    .header ul li{
+        margin:0 20px;
+        padding:10px;
+        text-align:center;
+        color:#fff;
+    }
+}
+
+
+
+
+
+
