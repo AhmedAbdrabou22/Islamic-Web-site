@@ -34,10 +34,15 @@ function hadithChange() {
     fetch("https://api.hadith.sutanlab.id/books/muslim?range=1-300")
         .then(response => response.json())
         .then(data => {
-            let Hadith = data.data.hadiths;
+            var Hadith = data.data.hadiths;
             changeHadith()
             next.addEventListener("click", () => {
-                index == 299 ? index = 0 : index++;
+                // index == 299 ? index = 0 : index++;
+                if(index == 299){
+                    index = 0;
+                }else{
+                    index++;
+                }
                 changeHadith();
             })
             prev.addEventListener("click", () => {
@@ -53,6 +58,7 @@ function hadithChange() {
 }
 
 $('.main').ripples();
+
 
 
 
