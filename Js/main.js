@@ -27,37 +27,56 @@ let content = document.getElementById("content");
 let next = document.querySelector(".btns .next");
 let prev = document.querySelector(".btns .prev");
 let number = document.querySelector(".btns .number");
-let index = 0;
+let index = 2962;
 
 hadithChange();
 function hadithChange() {
-    fetch("https://api.hadith.sutanlab.id/books/muslim?range=1-300")
+    fetch(`https://hadeethenc.com/api/v1/hadeeths/one/?language=ar&id=${index}`)
         .then(response => response.json())
         .then(data => {
-            var Hadith = data.data.hadiths;
+            content.innerText = data.hadeeth
+            // var Hadith = data.data.hadiths;
             changeHadith()
             next.addEventListener("click", () => {
-                // index == 299 ? index = 0 : index++;
-                if(index == 299){
-                    index = 0;
+                // index == 3048 ? index = 0 : index++;
+                if(index == 3048){
+                    index = 2096;
                 }else{
                     index++;
                 }
-                changeHadith();
+                // changeHadith();
+                fetch(`https://hadeethenc.com/api/v1/hadeeths/one/?language=ar&id=${index}`)
+                .then(response => response.json())
+                .then(data =>{
+                    content.innerText = data.hadeeth
+                })
+                number.innerText = `${index}-3048`
             })
             prev.addEventListener("click", () => {
-                index == 0 ? index = 299 : index--;
-                changeHadith();
+                // index == 2096 ? index = 3048 : index--;
+                if(index == 3048){
+                    index = 2962;
+                }else{
+                    index--
+                }
+                fetch(`https://hadeethenc.com/api/v1/hadeeths/one/?language=ar&id=${index}`)
+                .then(response => response.json())
+                .then(data =>{
+                    content.innerText = data.hadeeth
+                })
+                number.innerText = `${index}-3048`
+                // changeHadith();
+                // hadithChange();
             })
 
             function changeHadith() {
-                content.innerText = Hadith[index].arab;
-                number.innerText = `${index + 1}-300`
+                // content.innerText = data.hadeeth;
+                number.innerText = `${index}-3048`
             }
         })
 }
 
-$('.main').ripples();
+// $('.main').ripples();
 
 
 

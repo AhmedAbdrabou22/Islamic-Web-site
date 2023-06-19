@@ -137,6 +137,7 @@ h3{
     margin-top:20px;
     padding:50px 20px;
     text-align: center;
+    font-size: 30px;
 }
 .ahadith .btns .number{
     padding:10px 20px;
@@ -201,11 +202,15 @@ h3{
 
 
 /*Start of style section Quran*/
+.quran{
+    margin-top:120px;
+}
 .quran .content{
     display: flex;
     justify-content:space-evenly;
     align-items:baseline;
     flex-wrap:wrap;
+    font-size: 25px;
 }
 .quran .content .surah{
     min-height:100px;
