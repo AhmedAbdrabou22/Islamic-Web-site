@@ -151,10 +151,10 @@ function getApiQuran() {
 //PrayTime Api
 
 let cards = document.querySelector(".cards");
-let Arr = ["الفجر","الشروق","الظهر","العصر","الغروب","المغرب","العشاء","الامساك","قيام الليل"]
+let Arr = ["الفجر","الشروق","الظهر","العصر","الغروب","المغرب","العشاء","الامساك","قيام الليل" , "Firstthird" , "Lastthird"]
 getPrayTime();
 function getPrayTime() {
-    fetch("http://api.aladhan.com/v1/timingsByCity?city=cairo&country=egypt&method=8")
+    fetch("https://api.aladhan.com/v1/timingsByCity/15-04-2023?city=cairo&country=egypt&method=8")
         .then(respose => respose.json())
         .then(data => {
             cards.innerHTML="";
@@ -168,7 +168,7 @@ function getPrayTime() {
                     <div class="circle">
                         <p>${times[time]}</p>
                     </div>
-                    <p>${Arr[index]}</p>
+                    <p>${time}</p>
                 </div>
             `
             }
@@ -181,3 +181,24 @@ bars.addEventListener("click",()=>{
     scrollToggle.classList.toggle("active2")
 })
 
+
+let cardsZekr = document.querySelector(".cardsZekr");
+
+fetch(`https://raw.githubusercontent.com/nawafalqari/azkar-api/56df51279ab6eb86dc2f6202c7de26c8948331c1/azkar.json`)
+.then(response => response.json())
+.then(data =>{
+    console.log(data);
+    let dataTasbeeh = data.تسابيح
+    cardsZekr.innerHTML="";
+    for(let tasabeh in dataTasbeeh){
+        cardsZekr.innerHTML +=
+        `
+    <div class="cardZekr">
+        <div class="circle">
+            <p style="color:black"><span style="color:black">قول</span> ${dataTasbeeh[tasabeh].content} &nbsp; ${dataTasbeeh[tasabeh].count} مره: </p>
+            <p>${dataTasbeeh[tasabeh].description}</p>
+        </div>
+    </div>
+`
+    }
+})
