@@ -437,3 +437,51 @@ function stopRecording() {
 
 
 // ستنشئ هذه الوظيفة عنصرًا `audio` يستخدم لتشغيل التسجيل الصوتي، وزرين لبدء وإيقاف التسجيل، وعنصر `a` لتحميل الملف الصوتي. يتم تحديث اسم الملف ورابط التحميل باستخدام التاريخ والوقت الحاليين، ويتم تحديث رابط التحميل بعد إيقاف التسجيل الصوتي وتحويل البيانات إلى `Blob`.
+
+
+
+
+
+const arrayForAyat = ['بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ' , 'ٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَـٰلَمِینَ' ,'ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ'];
+let errorsArray = []
+
+let ayatForShow = document.querySelector('.showAyat .ayatForShow');
+console.log(ayatForShow);
+
+for(let i = 0 ; i<arrayForAyat.length ; i++){
+    let words = arrayForAyat[i].replace(/[\u064B-\u065F]/g, '');
+    const randomNum1 = Math.ceil(Math.random() * words.split("").length);
+    const randomNum2 = Math.ceil(Math.random() * words.split("").length);
+    ayatForShow.innerHTML += `
+        <h1>${arrayForAyat[i]}<h1/>
+        <hr>`   
+    errorsArray.push(words.split("")[randomNum1]  , words.split("")[randomNum2])
+}
+
+{/* <p>الغلطه في الايه ${i+1} : <span style="color:red">${words.split("")[randomNum1]} - ${words.split("")[randomNum2]} </span></p> */}
+
+let errors  = document.querySelector('.errors')
+for(let i = 0 ; i<errorsArray.length ; i++){
+    console.log(errorsArray[i]);
+    if(errorsArray[i] == " " || errorsArray[i] == undefined || errorsArray[i] == "ۡ " ||errorsArray[i] == "ـ" || errorsArray[i] == " ٰ" ||errorsArray[i] =="ۡۡ "){
+        errorsArray[i] = ""
+        setTimeout(()=>{
+            errors.innerHTML += `
+            <span>${errorsArray[i]}</span>` 
+        } , 2000)
+    }else{
+        setTimeout(() => {
+            errors.innerHTML += `
+            <span>${errorsArray[i]}</span>`
+        },2000)
+    }
+}
+
+
+
+// console.log(errorsArray);
+
+
+let words = arrayForAyat[2].replace(/[\u064B-\u065F]/g, '')
+console.log(words.split("").length)
+
