@@ -20,7 +20,7 @@
 
     <section class="header">
         <div class="container">
-            <div class="logo">الاسلام</div>
+            <div class="logo">الفرقان</div>
             <div>
                 <ul>
                     <li data-filter="main" class="hvr-underline-from-right">الصفحه الرئيسيه</li>
@@ -42,7 +42,7 @@
     <section class="main">
         <div class="container">
             <div class="title">
-                <h2>مرحبا بك في <br>موقع الموعظه الاسلامي</h2>
+                <h2>مرحبا بك في <br>موقع الفرقان الاسلامي</h2>
                 <div class="btn">
                     <button class="hvr-sweep-to-left">ابدا التصفح الان <i class="fas fa-caret-left"></i></button>
                 </div>
@@ -91,6 +91,14 @@
         <div class="ayat">
         </div>
     </section>
+
+    <section class="ayat-pop2">
+        <div class="a">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="ayat2">
+        </div>
+    </section>
     <!--End  of section Ayat-->
     <!--Start of section prayTime-->
     <section class="prayTime mt-5">
@@ -120,7 +128,7 @@
             <div class="cardsZekr mt-5">
                 <div class="cardZekr bg-dark">
                     <div class="circleZekre bg-dark">
-                        
+
                     </div>
                 </div>
             </div>
@@ -128,9 +136,67 @@
     </section>
     <!--Section Azkar elsaba7 wel masaa-->
 
+
+    <!--Start of section tafseer Quran-->
+    <section class="quranTafseer mt-5">
+        <h3> تفسير القران الكريم </h3>
+        <div class="hr"></div>
+        <div class="hr2"></div>
+        <div class="container">
+            <div class="contentquran mt-3">
+                <!--محتوي هذا السيكشن جاي من ال api جافا سكريبت-->
+            </div>
+        </div>
+    </section>
+    <!--End of section tafseer Quran-->
+
+
+    <div class="container recorded">
+        <h3>تحليل الايه القرانيه</h3>
+        <div class="hr"></div>
+        <div class="hr2"></div>
+        <div class="audioController">
+            <div>
+                <audio controls id="audio"></audio>
+            </div>
+            
+            <div>
+                <button onclick="stopRecording()" id="stop">Stop Recording</button>
+                <button onclick="startRecording()" id="record">Start Recording</button>
+                <a download="audio> <span id='datetime'></span>.wav" id="downloadLink">Download</a>
+            </div>
+        </div>
+        <!-- <div class="data">
+            <div class="display">
+
+            </div>
+
+            <div class="controllers">
+
+            </div>
+        </div> -->
+
+    </div>
+
+
+
+    <!-- <audio controls id="audio"></audio>
+    <button onclick="startRecording()" id="record">Start Recording</button>
+    <button onclick="stopRecording()" id="stop">Stop Recording</button>
+    <a download="audio > <span id='datetime'></span>.wav" id="downloadLink">Download</a> -->
+
+
+    <!-- <input type="file" accept="audio/*"/> -->
+
+
+
     <!--Stat of section footer-->
     <section class="footer mt-5">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#43a047" fill-opacity="1" d="M0,32L30,26.7C60,21,120,11,180,21.3C240,32,300,64,360,69.3C420,75,480,53,540,48C600,43,660,53,720,53.3C780,53,840,43,900,42.7C960,43,1020,53,1080,64C1140,75,1200,85,1260,96C1320,107,1380,117,1410,122.7L1440,128L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#43a047" fill-opacity="1"
+                d="M0,32L30,26.7C60,21,120,11,180,21.3C240,32,300,64,360,69.3C420,75,480,53,540,48C600,43,660,53,720,53.3C780,53,840,43,900,42.7C960,43,1020,53,1080,64C1140,75,1200,85,1260,96C1320,107,1380,117,1410,122.7L1440,128L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z">
+            </path>
+        </svg>
         <div class="social">
             <a href="#"><i class="fab fa-facebook"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>

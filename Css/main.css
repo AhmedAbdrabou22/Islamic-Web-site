@@ -202,17 +202,17 @@ h3{
 
 
 /*Start of style section Quran*/
-.quran{
+.quran , .quranTafseer{
     margin-top:120px;
 }
-.quran .content{
+.quran .content , .quranTafseer .contentquran {
     display: flex;
     justify-content:space-evenly;
     align-items:baseline;
     flex-wrap:wrap;
     font-size: 25px;
 }
-.quran .content .surah{
+.quran .content .surah , .quranTafseer .contentquran .surah2{
     min-height:100px;
     min-width:190px;
     box-shadow: 0 0 5px rgba(0,0,0,0.4);
@@ -222,13 +222,17 @@ h3{
     transition: 0.4s;
     cursor:pointer;
 }
-.quran .content .surah:hover{
+.quran .content .surah:hover , .quranTafseer .contentquran .surah2:hover{
     transform: scale(1.05);
 }
 /*End of style section Quran*/
 
+
+
+
+
 /*Start of style sectio ayat-pop*/
-.ayat-pop{
+.ayat-pop , .ayat-pop2{
     position: fixed;
     top:0;
     left:0;
@@ -242,23 +246,23 @@ h3{
     /* display: none; */
     transform: translateX(100%);
 }
-.ayat-pop.active{
+.ayat-pop.active , .ayat-pop2.c{
     /* display: block; */
     transform: translateX(0);
     transition: 0.7s transform ease-in-out;
 }
-.ayat-pop.active2{
+.ayat-pop.active2 , .ayat-pop2.c2{
     transform: translateX(100%);
     transition: 0.7s transform ease-in;
 }
-.ayat-pop::-webkit-scrollbar{
+.ayat-pop::-webkit-scrollbar  , .ayat-pop2::-webkit-scrollbar{
     width:10px;
     background-color:#43a047;
 }
-.ayat-pop::-webkit-scrollbar-thumb{
+.ayat-pop::-webkit-scrollbar-thumb , .ayat-pop2::-webkit-scrollbar-thumb{
     background-color: #fff;
 }
-.ayat-pop .close{
+.ayat-pop .close , .ayat-pop2 .a{
     position:sticky;
     top:5px;
     right:0px;
@@ -270,14 +274,15 @@ h3{
     line-height:2;
     cursor: pointer;
 }
-.ayat-pop .ayat{
+.ayat-pop2 .a
+.ayat-pop .ayat  ,.ayat-pop2 .ayat2{
     padding:20px;
     text-align: center;
     width:90%;
     margin:20px auto 0px ;
     text-align:center;
 }
-.ayat-pop .ayat p{
+.ayat-pop .ayat p  ,.ayat-pop2 .ayat2 p{
     border-bottom: 2px solid #43a047;
     padding:5px;
     width:100%;
@@ -285,6 +290,16 @@ h3{
     font-size: 23px;
 }
 /*End of style Section ayat-pop*/
+
+
+
+
+
+
+
+
+
+
 
 /*Start of style section prayTime*/
 .prayTime .cards , .azkar .cardsZekr{
@@ -426,3 +441,55 @@ h3{
 
 
 
+.recorded{
+    /* background-color: red; */
+    padding:10px;
+    margin-top: 120px;
+}
+.recorded .audioController{
+    width:50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.recorded .display{
+    display: flex;
+    text-align: center;
+}
+.data{
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+#record , #stop , #downloadLink{
+    text-decoration: none;
+    background-color: #43a047  !important;
+    padding:10px 20px;
+    border:none;
+    border-radius: 10px;
+    color:white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    cursor: pointer;
+    margin-top:-1px;
+    margin-right:10px ;
+}
+audio {
+    width: 350px;
+    height: 50px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+  
+  audio::-webkit-media-controls-panel {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
