@@ -3,10 +3,10 @@
     margin:0;
     box-sizing: border-box;
     font-family: 'Cairo', sans-serif;
-    overflow-x: hidden;
 }
 body{
     direction:rtl;
+    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
@@ -233,7 +233,7 @@ h3{
 
 
 /*Start of style sectio ayat-pop*/
-.ayat-pop , .ayat-pop2{
+.ayat-pop , .ayat-pop2 , .ayat-pop3{
     position: fixed;
     top:0;
     left:0;
@@ -253,23 +253,23 @@ h3{
     -ms-transform: translateX(100%);
     -o-transform: translateX(100%);
 }
-.ayat-pop.active , .ayat-pop2.c{
+.ayat-pop.active , .ayat-pop2.c , .ayat-pop3.r{
     /* display: block; */
     transform: translateX(0);
     transition: 0.7s transform ease-in-out;
 }
-.ayat-pop.active2 , .ayat-pop2.c2{
+.ayat-pop.active2 , .ayat-pop2.c2 , .ayat-pop3.r2{
     transform: translateX(100%);
     transition: 0.7s transform ease-in;
 }
-.ayat-pop::-webkit-scrollbar  , .ayat-pop2::-webkit-scrollbar{
+.ayat-pop::-webkit-scrollbar  , .ayat-pop2::-webkit-scrollbar , .ayat-pop3::-webkit-scrollbar{
     width:10px;
     background-color:#43a047;
 }
-.ayat-pop::-webkit-scrollbar-thumb , .ayat-pop2::-webkit-scrollbar-thumb{
+.ayat-pop::-webkit-scrollbar-thumb , .ayat-pop2::-webkit-scrollbar-thumb , .ayat-pop3::-webkit-scrollbar-thumb{
     background-color: #fff;
 }
-.ayat-pop .close , .ayat-pop2 .a{
+.ayat-pop .close , .ayat-pop2 .a ,.ayat-pop3 .b{
     position:sticky;
     top:5px;
     right:0px;
@@ -314,6 +314,7 @@ h3{
     justify-content:center;
     align-items:flex-end;
     flex-wrap: wrap;
+    /* overflow: auto; */
 }
 .prayTime .cards .card , .azkar .cardsZekr .cardZekr{
     padding:20px 30px;

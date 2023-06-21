@@ -240,8 +240,8 @@ function getApiQuran2() {
                             if(true){
                                 for(let i = 0 ; i < dataAyat2.length ; i++){
                                     ayats2.innerHTML += `
-                                    <h1> الايه  :  (${dataAyat2[i].aya}) ( ${dataAyat2[i].arabic_text}</h1>
-                                    <p> تفسيرها :  (${dataAyat2[i].translation}</p>
+                                    <h1 style=" color:#43a047"> الايه  :  (${dataAyat2[i].aya}) ( ${dataAyat2[i].arabic_text}</h1>
+                                    <p> <span style="font-weight:bolder ; color:#43a047">تفسيرها</span> :  (${dataAyat2[i].translation}</p>
                                 `
                                 }
                             }
@@ -448,40 +448,54 @@ let errorsArray = []
 let ayatForShow = document.querySelector('.showAyat .ayatForShow');
 console.log(ayatForShow);
 
-for(let i = 0 ; i<arrayForAyat.length ; i++){
-    let words = arrayForAyat[i].replace(/[\u064B-\u065F]/g, '');
-    const randomNum1 = Math.ceil(Math.random() * words.split("").length);
-    const randomNum2 = Math.ceil(Math.random() * words.split("").length);
-    ayatForShow.innerHTML += `
-        <h1>${arrayForAyat[i]}<h1/>
-        <hr>`   
-    errorsArray.push(words.split("")[randomNum1]  , words.split("")[randomNum2])
-}
+    for(let i = 0 ; i<arrayForAyat.length ; i++){
+        let words = arrayForAyat[i].replace(/[\u064B-\u065F]/g, '');
+        const randomNum1 = Math.ceil(Math.random() * words.split("").length);
+        const randomNum2 = Math.ceil(Math.random() * words.split("").length);
+        ayatForShow.innerHTML += `
+            <h1>${arrayForAyat[i]}<h1/>
+            <hr>`   
+        errorsArray.push(words.split("")[randomNum1]  , words.split("")[randomNum2])
+    }
 
 {/* <p>الغلطه في الايه ${i+1} : <span style="color:red">${words.split("")[randomNum1]} - ${words.split("")[randomNum2]} </span></p> */}
 
 let errors  = document.querySelector('.errors')
-for(let i = 0 ; i<errorsArray.length ; i++){
-    console.log(errorsArray[i]);
-    if(errorsArray[i] == " " || errorsArray[i] == undefined || errorsArray[i] == "ۡ " ||errorsArray[i] == "ـ" || errorsArray[i] == " ٰ" ||errorsArray[i] =="ۡۡ "){
-        errorsArray[i] = ""
-        setTimeout(()=>{
-            errors.innerHTML += `
-            <span>${errorsArray[i]}</span>` 
-        } , 2000)
-    }else{
-        setTimeout(() => {
-            errors.innerHTML += `
-            <span>${errorsArray[i]}</span>`
-        },2000)
+
+    for(let i = 0 ; i<errorsArray.length ; i++){
+        console.log(errorsArray[i]);
+        if(errorsArray[i] == " " || errorsArray[i] == undefined || errorsArray[i] == "ۡ " ||errorsArray[i] == "ـ" || errorsArray[i] == " ٰ" ||errorsArray[i] =="ۡۡ "){
+            errorsArray[i] = ""
+            setTimeout(()=>{
+                errors.innerHTML += `
+                <span>${errorsArray[i]}</span>` 
+            } , 2000)
+        }else{
+            setTimeout(() => {
+                errors.innerHTML += `
+                <span>${errorsArray[i]}</span>`
+            },2000)
+        }
     }
-}
 
 
 
 // console.log(errorsArray);
 
 
-let words = arrayForAyat[2].replace(/[\u064B-\u065F]/g, '')
-console.log(words.split("").length)
+// let words = arrayForAyat[2].replace(/[\u064B-\u065F]/g, '')
+// console.log(words.split("").length)
 
+let ayat_pop3 = document.querySelector(".ayat-pop3");
+let ayats3 = document.querySelector(".ayat3");
+
+document.getElementById('downloadLink').addEventListener("click", ()=>{
+    ayat_pop3.classList.add("r");
+})
+let close3 = document.querySelector(".b");
+console.log(close3);
+close3.addEventListener("click", () => {
+    ayat_pop3.classList.remove("r")
+    ayat_pop3.classList.remove("r2")
+    location.reload();
+})
