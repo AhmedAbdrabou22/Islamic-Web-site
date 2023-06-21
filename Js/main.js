@@ -127,7 +127,7 @@ function getApiQuran() {
             surahsContainer.forEach((tit, index) => {
                 tit.addEventListener("click", () => {
                     ayat_pop.classList.add("active");
-                    fetch(`http://api.alquran.cloud/v1/surah/${index + 1}`)
+                    fetch(`https://api.alquran.cloud/v1/surah/${index + 1}`)
                         .then(response => response.json())
                         .then(data => {
                             ayats.innerHTML = "";
