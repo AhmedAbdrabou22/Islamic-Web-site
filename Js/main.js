@@ -228,7 +228,7 @@ function getApiQuran2() {
             surahsContainer2.forEach((tit, index) => {
                 tit.addEventListener("click", () => {
                     ayat_pop2.classList.add("c");
-                    fetch(`https://quranenc.com/api/v1/translation/sura/arabic_moyassar/${index+1}`)
+                    fetch(`https://quranenc.com/api/v1/translation/sura/arabic_moyassar/${index + 1}`)
                         .then(response => response.json())
                         .then(data => {
                             // console.log(data.result[0].translation);
@@ -237,8 +237,8 @@ function getApiQuran2() {
                             let dataAyat2 = data.result;
                             console.log(dataAyat);
                             console.log(dataAyat2);
-                            if(true){
-                                for(let i = 0 ; i < dataAyat2.length ; i++){
+                            if (true) {
+                                for (let i = 0; i < dataAyat2.length; i++) {
                                     ayats2.innerHTML += `
                                     <h1 style=" color:#43a047"> الايه  :  (${dataAyat2[i].aya}) ( ${dataAyat2[i].arabic_text}</h1>
                                     <p> <span style="font-weight:bolder ; color:#43a047">تفسيرها</span> :  (${dataAyat2[i].translation}</p>
@@ -249,7 +249,6 @@ function getApiQuran2() {
                 })
             })
             let close2 = document.querySelector(".a");
-            console.log(close2);
             close2.addEventListener("click", () => {
                 ayat_pop2.classList.remove("c")
                 ayat_pop2.classList.remove("c2")
@@ -442,60 +441,158 @@ function stopRecording() {
 
 
 
-const arrayForAyat = ['بِسۡمِ ٱللَّهِ ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ' , 'ٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَـٰلَمِینَ' ,'ٱلرَّحۡمَـٰنِ ٱلرَّحِیمِ'];
-let errorsArray = []
+const arrayForAyat = ['بسم الله الرحمن الرحيم', 'الحمد لله رب العالمين', 'صراط الذين انعمت عليهم'];
 
-let ayatForShow = document.querySelector('.showAyat .ayatForShow');
-console.log(ayatForShow);
+console.log(arrayForAyat[0].slice(0, 3));
 
-    for(let i = 0 ; i<arrayForAyat.length ; i++){
-        let words = arrayForAyat[i].replace(/[\u064B-\u065F]/g, '');
-        const randomNum1 = Math.ceil(Math.random() * words.split("").length);
-        const randomNum2 = Math.ceil(Math.random() * words.split("").length);
-        ayatForShow.innerHTML += `
-            <h1>${arrayForAyat[i]}<h1/>
-            <hr>`   
-        errorsArray.push(words.split("")[randomNum1]  , words.split("")[randomNum2])
-    }
+// let errorsArray = []
 
-{/* <p>الغلطه في الايه ${i+1} : <span style="color:red">${words.split("")[randomNum1]} - ${words.split("")[randomNum2]} </span></p> */}
+// let ayatForShow = document.querySelector('.showAyat .ayatForShow');
 
-let errors  = document.querySelector('.errors')
+// for (let i = 0; i < arrayForAyat.length; i++) {
+//     let words = arrayForAyat[i].replace(/[\u064B-\u065F]/g, '');
+//     const randomNum1 = Math.ceil(Math.random() * words.split("").length);
+//     const randomNum2 = Math.ceil(Math.random() * words.split("").length);
+//     ayatForShow.innerHTML += `
+//             <h1>${arrayForAyat[i]}<h1/>
+//             <hr>`
+//     errorsArray.push(words.split("")[randomNum1], words.split("")[randomNum2])
+// }
 
-    for(let i = 0 ; i<errorsArray.length ; i++){
-        console.log(errorsArray[i]);
-        if(errorsArray[i] == " " || errorsArray[i] == undefined || errorsArray[i] == "ۡ " ||errorsArray[i] == "ـ" || errorsArray[i] == " ٰ" ||errorsArray[i] =="ۡۡ "){
-            errorsArray[i] = ""
-            setTimeout(()=>{
-                errors.innerHTML += `
-                <span>${errorsArray[i]}</span>` 
-            } , 2000)
+// {/* <p>الغلطه في الايه ${i+1} : <span style="color:red">${words.split("")[randomNum1]} - ${words.split("")[randomNum2]} </span></p> */ }
+
+// let errors = document.querySelector('.errors')
+
+// for (let i = 0; i < errorsArray.length; i++) {
+//     if (errorsArray[i] == " " || errorsArray[i] == undefined || errorsArray[i] == "ۡ " || errorsArray[i] == "ـ" || errorsArray[i] == " ٰ" || errorsArray[i] == "ۡۡ ") {
+//         errorsArray[i] = ""
+//         setTimeout(() => {
+//             errors.innerHTML += `
+//                 <span>${errorsArray[i]}</span>`
+//         }, 2000)
+//     } else {
+//         setTimeout(() => {
+//             errors.innerHTML += `
+//                 <span>${errorsArray[i]}</span>`
+//         }, 2000)
+//     }
+// }
+
+
+
+// // console.log(errorsArray);
+
+
+// // let words = arrayForAyat[2].replace(/[\u064B-\u065F]/g, '')
+// // console.log(words.split("").length)
+
+// let ayat_pop3 = document.querySelector(".ayat-pop3");
+// let ayats3 = document.querySelector(".ayat3");
+
+// document.getElementById('downloadLink').addEventListener("click", () => {
+//     ayat_pop3.classList.add("r");
+// })
+// let close3 = document.querySelector(".b");
+// close3.addEventListener("click", () => {
+//     ayat_pop3.classList.remove("r")
+//     ayat_pop3.classList.remove("r2")
+//     location.reload();
+// })
+
+
+
+
+
+
+const SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
+
+// تحديد اللغة المستخدمة في تقنية التعرف على الصوت
+recognition.lang = "ar-SA";
+
+const startButton = document.getElementById("start-button");
+const resultDiv = document.getElementById("result");
+
+recognition.onresult = (event) => {
+    const result = event.results[0][0].transcript;
+    // تشكيل النص المكتوب باللغة العربية باستخدام خط "Droid Arabic Kufi"
+
+    if (result === "بسم" || result=== "الله" || result=== "الرحمن" || result=== "الرحيم" || result=== "الرحمن الرحيم" || result=== "بسم الله" || result=== "بسم الرحمن" || result=== "بسم الرحمن" || result=== "الله الرحمن"  || result=== "الله الرحيم" || result==="بسم الله الرحمن الرحيم" || result === "الله الرحمن الرحيم" ||  result==="بسم  الرحمن الرحيم") {
+        // console.log("yaaa");
+        if(result==="بسم الله الرحمن الرحيم"){
+            resultDiv.innerHTML = `
+            <p dir="rtl"> <span style="color:#43a047">الايه المقاله</span> :  ${result}  </p>
+            <p dir="rtl"> <span style="color:#43a047">الكلمات المنقوصه من الايه</span> : الايه مكتمله  </p>
+            `;
         }else{
-            setTimeout(() => {
-                errors.innerHTML += `
-                <span>${errorsArray[i]}</span>`
-            },2000)
+            const results = arrayForAyat[0].split(" ").filter((item) => !result.split(" ").includes(item));
+            console.log(results);
+            let arrayOfResults = results.join().split('')
+            console.log(arrayOfResults);
+            resultDiv.innerHTML = `
+                <p dir="rtl"> <span style="color:#43a047">الايه المقاله</span> :  ${result}  </p>
+                <p dir="rtl"> <span style="color:#43a047">الحروف الغير منطوقه</span> :  ${arrayOfResults}  </p>
+                `;
         }
+
+
+    } else if (result === "صراط" || result=== "الذين" || result=== "انعمت" || result=== "عليهم" || result=== "صراط الذين" || result=== "انعمت عليهم" || 
+    result=== "صراط الذين انعمت " || result=== "صراط الذين عليهم" || result=== "الذين انعمت"  || result=== "الذين انعمت عليهم" || result==="صراط انعمت" || result==="صراط عليهم" || result === arrayForAyat[2]) {
+        // console.log("yaaa");
+        if(result===arrayForAyat[2]){
+            resultDiv.innerHTML = `
+            <p dir="rtl"> <span style="color:#43a047">الايه المقاله</span> :  ${result}  </p>
+            <p dir="rtl"> <span style="color:#43a047">الكلمات المنقوصه من الايه</span> : الايه مكتمله  </p>
+            `;
+        }else{
+            const results = arrayForAyat[2].split(" ").filter((item) => !result.split(" ").includes(item));
+            console.log(results);
+            let arrayOfResults = results.join().split('')
+            console.log(arrayOfResults);
+            resultDiv.innerHTML = `
+                <p dir="rtl"> <span style="color:#43a047">الايه المقاله</span> :  ${result}  </p>
+                <p dir="rtl"> <span style="color:#43a047">الحروف الغير منطوقه</span> :  ${arrayOfResults}  </p>
+                `;
+        }
+
+
+    }
+    else if(result === "الحمد لله رب العالمين" || result === "الحمد" || result === "لله" || result === "رب" || result === "العالمين" || result === "الحمد لله" ||result === "رب العالمين" || result === "الحمد لله رب" || result === "الحمد لله العالمين" || result === " لله رب العالمين" || result === "لله العالمين"){
+            if (result === arrayForAyat[1]) {
+        // console.log("yaaa");
+        resultDiv.innerHTML = `
+            <p dir="rtl"> <span style="color:#43a047">الايه المقاله</span> :  ${result}  </p>
+            <p dir="rtl"> <span style="color:#43a047">الكلمات المنقوصه من الايه</span> : الايه مكتمله  </p>
+            `;
+    } else {
+
+        const results = arrayForAyat[1].split(" ").filter((item) => !result.split(" ").includes(item));
+        console.log(results);
+        let arrayOfResults = results.join().split('')
+        console.log(arrayOfResults);
+        resultDiv.innerHTML = `
+            <p dir="rtl"> <span style="color:#43a047">الايه المقاله</span> :  ${result}  </p>
+            <p dir="rtl"> <span style="color:#43a047">الحروف الغير منطوقه</span> :  ${arrayOfResults}  </p>
+            `;
+        // resultDiv.innerHTML = ``;
+    }
+    }else{
+        resultDiv.innerHTML = `
+            <p dir="rtl"> <span style="color:#43a047">الايه المقاله</span> :  قراءه غير صحيحه  </p>
+            <p dir="rtl"> <span style="color:#43a047">الكلمات المنقوصه من الايه</span> : الايه غير مكتمله  </p>
+            `;
     }
 
+};
+
+recognition.onerror = (event) => {
+    console.error(event.error);
+};
+
+startButton.addEventListener("click", () => {
+    recognition.start();
+});
 
 
-// console.log(errorsArray);
-
-
-// let words = arrayForAyat[2].replace(/[\u064B-\u065F]/g, '')
-// console.log(words.split("").length)
-
-let ayat_pop3 = document.querySelector(".ayat-pop3");
-let ayats3 = document.querySelector(".ayat3");
-
-document.getElementById('downloadLink').addEventListener("click", ()=>{
-    ayat_pop3.classList.add("r");
-})
-let close3 = document.querySelector(".b");
-console.log(close3);
-close3.addEventListener("click", () => {
-    ayat_pop3.classList.remove("r")
-    ayat_pop3.classList.remove("r2")
-    location.reload();
-})
+console.log(arrayForAyat[2])
