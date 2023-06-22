@@ -532,9 +532,9 @@ recognition.onresult = (event) => {
     const result = event.results[0][0].transcript;
     // تشكيل النص المكتوب باللغة العربية باستخدام خط "Droid Arabic Kufi"
 
-    if (result === "بسم" || result=== "الله" || result=== "الرحمن" || result=== "الرحيم" || result=== "الرحمن الرحيم" || result=== "بسم الله" || result=== "بسم الرحمن" || result=== "بسم الرحمن" || result=== "الله الرحمن"  || result=== "الله الرحيم" || result==="بسم الله الرحمن " || result === "الله الرحمن الرحيم" ||  result==="بسم  الرحمن الرحيم" ||  result === "بسم الله الرحيم" || result=== "بسم الله الرحمن") {
+    if (result === "بسم" || result=== "الله" || result=== "الرحمن" || result=== "الرحيم" || result=== "الرحمن الرحيم" || result=== "بسم الله" || result=== "بسم الرحمن" || result=== "بسم الرحمن" || result=== "الله الرحمن"  || result=== "الله الرحيم" || result==="بسم الله الرحمن " || result === "الله الرحمن الرحيم" ||  result===arrayForAyat[0] ||  result === "بسم الله الرحيم" || result=== "بسم الله الرحمن") {
         // console.log("yaaa");
-        if(result==="بسم الله الرحمن الرحيم" ){
+        if(result===arrayForAyat[0] ){
             resultDiv.innerHTML = `
             <p dir="rtl"> <span style="color:#43a047">الايه المقاله</span> :  ${result}  </p>
             <p dir="rtl"> <span style="color:#43a047">الكلمات المنقوصه من الايه</span> : الايه مكتمله  </p>
