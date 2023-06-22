@@ -501,8 +501,22 @@ console.log(arrayForAyat[0].slice(0, 3));
 
 
 
+let startDecoder = document.getElementById("start-decode");
+// console.log(startDecoder);
 
+let ayat_pop4 = document.querySelector(".ayat-pop4");
+let ayats4 = document.querySelector(".ayat4");
 
+startDecoder.addEventListener("click" , ()=>{
+    console.log("yaa");
+    ayat_pop4.classList.add("f")
+})
+let close4 = document.querySelector(".d");
+ close4.addEventListener("click", () => {
+    ayat_pop4.classList.remove("f")
+    ayat_pop4.classList.remove("f2")
+    location.reload();
+})
 
 const SpeechRecognition =
     window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -518,9 +532,9 @@ recognition.onresult = (event) => {
     const result = event.results[0][0].transcript;
     // تشكيل النص المكتوب باللغة العربية باستخدام خط "Droid Arabic Kufi"
 
-    if (result === "بسم" || result=== "الله" || result=== "الرحمن" || result=== "الرحيم" || result=== "الرحمن الرحيم" || result=== "بسم الله" || result=== "بسم الرحمن" || result=== "بسم الرحمن" || result=== "الله الرحمن"  || result=== "الله الرحيم" || result==="بسم الله الرحمن الرحيم" || result === "الله الرحمن الرحيم" ||  result==="بسم  الرحمن الرحيم") {
+    if (result === "بسم" || result=== "الله" || result=== "الرحمن" || result=== "الرحيم" || result=== "الرحمن الرحيم" || result=== "بسم الله" || result=== "بسم الرحمن" || result=== "بسم الرحمن" || result=== "الله الرحمن"  || result=== "الله الرحيم" || result==="بسم الله الرحمن " || result === "الله الرحمن الرحيم" ||  result==="بسم  الرحمن الرحيم" ||  result === "بسم الله الرحيم" || result=== "بسم الله الرحمن") {
         // console.log("yaaa");
-        if(result==="بسم الله الرحمن الرحيم"){
+        if(result==="بسم الله الرحمن الرحيم" ){
             resultDiv.innerHTML = `
             <p dir="rtl"> <span style="color:#43a047">الايه المقاله</span> :  ${result}  </p>
             <p dir="rtl"> <span style="color:#43a047">الكلمات المنقوصه من الايه</span> : الايه مكتمله  </p>

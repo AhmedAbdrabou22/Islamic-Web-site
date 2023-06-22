@@ -3,6 +3,7 @@
     margin:0;
     box-sizing: border-box;
     font-family: 'Cairo', sans-serif;
+    font-size: 20px;
 }
 body{
     direction:rtl;
@@ -51,6 +52,7 @@ h3{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* font-size: 25px; */
 }
 .header .container ul li{
     margin:0px 15px;
@@ -233,7 +235,7 @@ h3{
 
 
 /*Start of style sectio ayat-pop*/
-.ayat-pop , .ayat-pop2 , .ayat-pop3{
+.ayat-pop , .ayat-pop2 , .ayat-pop3 , .ayat-pop4{
     position: fixed;
     top:0;
     left:0;
@@ -253,23 +255,23 @@ h3{
     -ms-transform: translateX(100%);
     -o-transform: translateX(100%);
 }
-.ayat-pop.active , .ayat-pop2.c , .ayat-pop3.r{
+.ayat-pop.active , .ayat-pop2.c , .ayat-pop3.r , .ayat-pop4.f{
     /* display: block; */
     transform: translateX(0);
     transition: 0.7s transform ease-in-out;
 }
-.ayat-pop.active2 , .ayat-pop2.c2 , .ayat-pop3.r2{
+.ayat-pop.active2 , .ayat-pop2.c2 , .ayat-pop3.r2  , .ayat-pop4.f2{
     transform: translateX(100%);
     transition: 0.7s transform ease-in;
 }
-.ayat-pop::-webkit-scrollbar  , .ayat-pop2::-webkit-scrollbar , .ayat-pop3::-webkit-scrollbar{
+.ayat-pop::-webkit-scrollbar  , .ayat-pop2::-webkit-scrollbar , .ayat-pop3::-webkit-scrollbar , .ayat-pop4::-webkit-scrollbar{
     width:10px;
     background-color:#43a047;
 }
-.ayat-pop::-webkit-scrollbar-thumb , .ayat-pop2::-webkit-scrollbar-thumb , .ayat-pop3::-webkit-scrollbar-thumb{
+.ayat-pop::-webkit-scrollbar-thumb , .ayat-pop2::-webkit-scrollbar-thumb , .ayat-pop3::-webkit-scrollbar-thumb , .ayat-pop4::-webkit-scrollbar-thumb{
     background-color: #fff;
 }
-.ayat-pop .close , .ayat-pop2 .a ,.ayat-pop3 .b{
+.ayat-pop .close , .ayat-pop2 .a ,.ayat-pop3 .b  ,.ayat-pop4 .d{
     position:sticky;
     top:5px;
     right:0px;
@@ -282,7 +284,7 @@ h3{
     cursor: pointer;
 }
 .ayat-pop2 .a
-.ayat-pop .ayat  ,.ayat-pop2 .ayat2{
+.ayat-pop .ayat  ,.ayat-pop2 .ayat2 , .ayat-pop4 .ayat4 , .ayat-pop3 .ayat3{ 
     padding:20px;
     text-align: center;
     width:90%;
@@ -290,7 +292,7 @@ h3{
     text-align:center;
     font-family: "Droid Arabic Kufi", sans-serif;
 }
-.ayat-pop .ayat p  ,.ayat-pop2 .ayat2 p{
+.ayat-pop .ayat p  ,.ayat-pop2 .ayat2 p , .ayat-pop4 .ayat4 p{
     border-bottom: 2px solid #43a047;
     padding:5px;
     width:100%;
@@ -322,7 +324,7 @@ h3{
     padding:20px 30px;
     margin:30px;
     min-height:280px;
-    width:230px;
+    width:250px;
     box-shadow: 0px 0px 4px rgba(0,0,0,0.4);
     margin-bottom: 5px;
     transition: 0.4s ease-in-out;
@@ -474,7 +476,7 @@ h3{
     justify-content: center;
     margin-top: 20px;
 }
-.start , #record , #stop , #downloadLink{
+.start , #record , #stop , #downloadLink , #start-decode{
     text-decoration: none;
     background-color: #43a047  !important;
     padding:10px 20px;
@@ -488,6 +490,7 @@ h3{
     cursor: pointer;
     margin-top:-1px;
     margin-right:10px ;
+    font-size: 20px;
 }
 audio {
     width: 350px;
@@ -532,5 +535,14 @@ audio {
     width:50%;
     /* background-color: red; */
     margin-top: 120px;
+    text-align: center;
+}
+.process{
+    margin-top: 120px;
+}
+.decoderIt{
+    width: 50%;
+    margin:25px auto;
+    /* background-color: red; */
     text-align: center;
 }
