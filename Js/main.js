@@ -606,7 +606,65 @@ recognition.onerror = (event) => {
 
 startButton.addEventListener("click", () => {
     recognition.start();
+    // Get access to the microphone
+navigator.mediaDevices.getUserMedia({ audio: true })
+.then(stream => {
+  // Create an audio context
+  const audioCtx = new AudioContext();
+  const source = audioCtx.createMediaStreamSource(stream);
+  const analyser = audioCtx.createAnalyser();
+  source.connect(analyser);
+
+  // Analyze the audio data
+  const canvas = document.getElementById('canvas');
+  const canvasCtx = canvas.getContext('2d');
+  const bufferLength = analyser.frequencyBinCount;
+  const dataArray = new Uint8Array(bufferLength);
+
+  function draw() {
+    requestAnimationFrame(draw);
+
+    analyser.getByteTimeDomainData(dataArray);
+
+    canvasCtx.fillStyle = '#ffffff';
+    canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+
+    canvasCtx.lineWidth = 2;
+    canvasCtx.strokeStyle = '#43a047';
+
+    canvasCtx.beginPath();
+
+    const sliceWidth = canvas.width * 1.0 / bufferLength;
+    let x = 0;
+
+    for (let i = 0; i < bufferLength; i++) {
+      const v = dataArray[i] / 128.0;
+      const y = v * canvas.height / 2;
+
+      if (i === 0) {
+        canvasCtx.moveTo(x, y);
+      } else {
+        canvasCtx.lineTo(x, y);
+      }
+
+      x += sliceWidth;
+    }
+
+    canvasCtx.lineTo(canvas.width, canvas.height / 2);
+    canvasCtx.stroke();
+  }
+
+  draw();
+})
+.catch(error => {
+  console.log(error);
+});
 });
 
 
 console.log(arrayForAyat[2])
+
+
+
+
+

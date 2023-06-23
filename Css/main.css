@@ -546,3 +546,11 @@ audio {
     /* background-color: red; */
     text-align: center;
 }
+
+.hack{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+}
