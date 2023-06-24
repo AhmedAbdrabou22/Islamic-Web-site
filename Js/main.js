@@ -383,7 +383,6 @@ const addAudio = () => {
 
 
 application(stateIndex)
-
 */
 
 
@@ -391,48 +390,48 @@ application(stateIndex)
 
 
 
-let chunks = [];
+// let chunks = [];
 
-{/* // تحديد الإعدادات الخاصة بالتسجيل الصوتي */ }
-const constraints = { audio: true };
-const audio = document.querySelector('#audio');
-const downloadLink = document.querySelector('#downloadLink');
-let recorder;
+// {/* // تحديد الإعدادات الخاصة بالتسجيل الصوتي */ }
+// const constraints = { audio: true };
+// const audio = document.querySelector('#audio');
+// const downloadLink = document.querySelector('#downloadLink');
+// let recorder;
 
-function startRecording() {
-    chunks = [];
+// function startRecording() {
+//     chunks = [];
 
-    // بدء التسجيل الصوتي
-    navigator.mediaDevices.getUserMedia(constraints)
-        .then(function (stream) {
-            recorder = new MediaRecorder(stream);
-            recorder.ondataavailable = function (e) {
-                chunks.push(e.data);
-            };
-            recorder.start();
-        })
-        .catch(function (err) {
-            console.log('Error: ' + err);
-        });
-}
+//     // بدء التسجيل الصوتي
+//     navigator.mediaDevices.getUserMedia(constraints)
+//         .then(function (stream) {
+//             recorder = new MediaRecorder(stream);
+//             recorder.ondataavailable = function (e) {
+//                 chunks.push(e.data);
+//             };
+//             recorder.start();
+//         })
+//         .catch(function (err) {
+//             console.log('Error: ' + err);
+//         });
+// }
 
-function stopRecording() {
-    // إيقاف التسجيل الصوتي وتحويل البيانات إلى Blob
-    recorder.onstop = function () {
-        const blob = new Blob(chunks, { type: 'audio/wav' });
-        audio.src = URL.createObjectURL(blob);
+// function stopRecording() {
+//     // إيقاف التسجيل الصوتي وتحويل البيانات إلى Blob
+//     recorder.onstop = function () {
+//         const blob = new Blob(chunks, { type: 'audio/wav' });
+//         audio.src = URL.createObjectURL(blob);
 
-        // تعيين اسم الملف وتحديث رابط التحميل
-        // const datetime = new Date().toISOString().replace(/[-:.]/g, "");
-        const datetime = "aboud"
-        const filename = `audio-${datetime}.wav`;
-        downloadLink.download = filename;
-        downloadLink.href = URL.createObjectURL(blob);
-        document.querySelector('#datetime').textContent = datetime;
-    };
+//         // تعيين اسم الملف وتحديث رابط التحميل
+//         // const datetime = new Date().toISOString().replace(/[-:.]/g, "");
+//         const datetime = "aboud"
+//         const filename = `audio-${datetime}.wav`;
+//         downloadLink.download = filename;
+//         downloadLink.href = URL.createObjectURL(blob);
+//         document.querySelector('#datetime').textContent = datetime;
+//     };
 
-    recorder.stop();
-}
+//     recorder.stop();
+// }
 
 
 // ستنشئ هذه الوظيفة عنصرًا `audio` يستخدم لتشغيل التسجيل الصوتي، وزرين لبدء وإيقاف التسجيل، وعنصر `a` لتحميل الملف الصوتي. يتم تحديث اسم الملف ورابط التحميل باستخدام التاريخ والوقت الحاليين، ويتم تحديث رابط التحميل بعد إيقاف التسجيل الصوتي وتحويل البيانات إلى `Blob`.
@@ -507,12 +506,12 @@ let startDecoder = document.getElementById("start-decode");
 let ayat_pop4 = document.querySelector(".ayat-pop4");
 let ayats4 = document.querySelector(".ayat4");
 
-startDecoder.addEventListener("click" , ()=>{
+startDecoder.addEventListener("click", () => {
     console.log("yaa");
     ayat_pop4.classList.add("f")
 })
 let close4 = document.querySelector(".d");
- close4.addEventListener("click", () => {
+close4.addEventListener("click", () => {
     ayat_pop4.classList.remove("f")
     ayat_pop4.classList.remove("f2")
     location.reload();
@@ -532,14 +531,14 @@ recognition.onresult = (event) => {
     const result = event.results[0][0].transcript;
     // تشكيل النص المكتوب باللغة العربية باستخدام خط "Droid Arabic Kufi"
 
-    if (result === "بسم" || result=== "الله" || result=== "الرحمن" || result=== "الرحيم" || result=== "الرحمن الرحيم" || result=== "بسم الله" || result=== "بسم الرحمن" || result=== "بسم الرحمن" || result=== "الله الرحمن"  || result=== "الله الرحيم" || result==="بسم الله الرحمن " || result === "الله الرحمن الرحيم" ||  result===arrayForAyat[0] ||  result === "بسم الله الرحيم" || result=== "بسم الله الرحمن") {
+    if (result === "بسم" || result === "الله" || result === "الرحمن" || result === "الرحيم" || result === "الرحمن الرحيم" || result === "بسم الله" || result === "بسم الرحمن" || result === "بسم الرحمن" || result === "الله الرحمن" || result === "الله الرحيم" || result === "بسم الله الرحمن " || result === "الله الرحمن الرحيم" || result === arrayForAyat[0] || result === "بسم الله الرحيم" || result === "بسم الله الرحمن") {
         // console.log("yaaa");
-        if(result===arrayForAyat[0] ){
+        if (result === arrayForAyat[0]) {
             resultDiv.innerHTML = `
             <p dir="rtl"> <span style="color:#43a047">الايه المقاله</span> :  ${result}  </p>
             <p dir="rtl"> <span style="color:#43a047">الكلمات المنقوصه من الايه</span> : الايه مكتمله  </p>
             `;
-        }else{
+        } else {
             const results = arrayForAyat[0].split(" ").filter((item) => !result.split(" ").includes(item));
             console.log(results);
             let arrayOfResults = results.join().split('')
@@ -551,15 +550,15 @@ recognition.onresult = (event) => {
         }
 
 
-    } else if (result === "صراط" || result=== "الذين" || result=== "انعمت" || result=== "عليهم" || result=== "صراط الذين" || result=== "انعمت عليهم" || 
-    result=== "صراط الذين انعمت " || result=== "صراط الذين عليهم" || result=== "الذين انعمت"  || result=== "الذين انعمت عليهم" || result==="صراط انعمت" || result==="صراط عليهم" || result === arrayForAyat[2]) {
+    } else if (result === "صراط" || result === "الذين" || result === "انعمت" || result === "عليهم" || result === "صراط الذين" || result === "انعمت عليهم" ||
+        result === "صراط الذين انعمت " || result === "صراط الذين عليهم" || result === "الذين انعمت" || result === "الذين انعمت عليهم" || result === "صراط انعمت" || result === "صراط عليهم" || result === arrayForAyat[2]) {
         // console.log("yaaa");
-        if(result===arrayForAyat[2]){
+        if (result === arrayForAyat[2]) {
             resultDiv.innerHTML = `
             <p dir="rtl"> <span style="color:#43a047">الايه المقاله</span> :  ${result}  </p>
             <p dir="rtl"> <span style="color:#43a047">الكلمات المنقوصه من الايه</span> : الايه مكتمله  </p>
             `;
-        }else{
+        } else {
             const results = arrayForAyat[2].split(" ").filter((item) => !result.split(" ").includes(item));
             console.log(results);
             let arrayOfResults = results.join().split('')
@@ -572,26 +571,26 @@ recognition.onresult = (event) => {
 
 
     }
-    else if(result === "الحمد لله رب العالمين" || result === "الحمد" || result === "لله" || result === "رب" || result === "العالمين" || result === "الحمد لله" ||result === "رب العالمين" || result === "الحمد لله رب" || result === "الحمد لله العالمين" || result === " لله رب العالمين" || result === "لله العالمين"){
-            if (result === arrayForAyat[1]) {
-        // console.log("yaaa");
-        resultDiv.innerHTML = `
+    else if (result === "الحمد لله رب العالمين" || result === "الحمد" || result === "لله" || result === "رب" || result === "العالمين" || result === "الحمد لله" || result === "رب العالمين" || result === "الحمد لله رب" || result === "الحمد لله العالمين" || result === " لله رب العالمين" || result === "لله العالمين") {
+        if (result === arrayForAyat[1]) {
+            // console.log("yaaa");
+            resultDiv.innerHTML = `
             <p dir="rtl"> <span style="color:#43a047">الايه المقاله</span> :  ${result}  </p>
             <p dir="rtl"> <span style="color:#43a047">الكلمات المنقوصه من الايه</span> : الايه مكتمله  </p>
             `;
-    } else {
+        } else {
 
-        const results = arrayForAyat[1].split(" ").filter((item) => !result.split(" ").includes(item));
-        console.log(results);
-        let arrayOfResults = results.join().split('')
-        console.log(arrayOfResults);
-        resultDiv.innerHTML = `
+            const results = arrayForAyat[1].split(" ").filter((item) => !result.split(" ").includes(item));
+            console.log(results);
+            let arrayOfResults = results.join().split('')
+            console.log(arrayOfResults);
+            resultDiv.innerHTML = `
             <p dir="rtl"> <span style="color:#43a047">الايه المقاله</span> :  ${result}  </p>
             <p dir="rtl"> <span style="color:#43a047">الحروف الغير منطوقه</span> :  ${arrayOfResults}  </p>
             `;
-        // resultDiv.innerHTML = ``;
-    }
-    }else{
+            // resultDiv.innerHTML = ``;
+        }
+    } else {
         resultDiv.innerHTML = `
             <p dir="rtl"> <span style="color:#43a047">الايه المقاله</span> :  قراءه غير صحيحه  </p>
             <p dir="rtl"> <span style="color:#43a047">الكلمات المنقوصه من الايه</span> : الايه غير مكتمله  </p>
@@ -606,65 +605,106 @@ recognition.onerror = (event) => {
 
 startButton.addEventListener("click", () => {
     recognition.start();
-    // Get access to the microphone
+});
+
+// Get access to the microphone
 navigator.mediaDevices.getUserMedia({ audio: true })
-.then(stream => {
-  // Create an audio context
-  const audioCtx = new AudioContext();
-  const source = audioCtx.createMediaStreamSource(stream);
-  const analyser = audioCtx.createAnalyser();
-  source.connect(analyser);
+    .then(stream => {
+        // Create an audio context
+        const audioCtx = new AudioContext();
+        const source = audioCtx.createMediaStreamSource(stream);
+        const analyser = audioCtx.createAnalyser();
+        source.connect(analyser);
 
-  // Analyze the audio data
-  const canvas = document.getElementById('canvas');
-  const canvasCtx = canvas.getContext('2d');
-  const bufferLength = analyser.frequencyBinCount;
-  const dataArray = new Uint8Array(bufferLength);
+        // Analyze the audio data
+        const canvas = document.getElementById('canvas');
+        const canvasCtx = canvas.getContext('2d');
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
 
-  function draw() {
-    requestAnimationFrame(draw);
+        function draw() {
+            requestAnimationFrame(draw);
 
-    analyser.getByteTimeDomainData(dataArray);
+            analyser.getByteTimeDomainData(dataArray);
 
-    canvasCtx.fillStyle = '#ffffff';
-    canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+            canvasCtx.fillStyle = '#ffffff';
+            canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
 
-    canvasCtx.lineWidth = 2;
-    canvasCtx.strokeStyle = '#43a047';
+            canvasCtx.lineWidth = 2;
+            canvasCtx.strokeStyle = '#43a047';
 
-    canvasCtx.beginPath();
+            canvasCtx.beginPath();
 
-    const sliceWidth = canvas.width * 1.0 / bufferLength;
-    let x = 0;
+            const sliceWidth = canvas.width * 1.0 / bufferLength;
+            let x = 0;
 
-    for (let i = 0; i < bufferLength; i++) {
-      const v = dataArray[i] / 128.0;
-      const y = v * canvas.height / 2;
+            for (let i = 0; i < bufferLength; i++) {
+                const v = dataArray[i] / 128.0;
+                const y = v * canvas.height / 2;
 
-      if (i === 0) {
-        canvasCtx.moveTo(x, y);
-      } else {
-        canvasCtx.lineTo(x, y);
-      }
+                if (i === 0) {
+                    canvasCtx.moveTo(x, y);
+                } else {
+                    canvasCtx.lineTo(x, y);
+                }
 
-      x += sliceWidth;
-    }
+                x += sliceWidth;
+            }
 
-    canvasCtx.lineTo(canvas.width, canvas.height / 2);
-    canvasCtx.stroke();
-  }
+            canvasCtx.lineTo(canvas.width, canvas.height / 2);
+            canvasCtx.stroke();
+        }
 
-  draw();
-})
-.catch(error => {
-  console.log(error);
-});
-});
+        draw();
+    })
+    .catch(error => {
+        console.log(error);
+    });
 
 
 console.log(arrayForAyat[2])
 
 
 
+
+
+let chunks = [];
+const constraints = { audio: true };
+const audio = document.querySelector('#audio');
+const downloadLink = document.querySelector('#downloadLink');
+let recorder;
+
+function startRecording() {
+    chunks = [];
+
+    navigator.mediaDevices.getUserMedia(constraints)
+        .then(function (stream) {
+            recorder = new MediaRecorder(stream);
+            recorder.ondataavailable = function (e) {
+                chunks.push(e.data);
+            };
+            recorder.start();
+        })
+        .catch(function (err) {
+            console.log('Error: ' + err);
+        });
+}
+
+function stopRecording() {
+    recorder.onstop = function () {
+        const blob = new Blob(chunks, { type: 'audio/wav' });
+        audio.src = URL.createObjectURL(blob);
+
+        // تعيين اسم الملف وتحديث رابط التحميل
+        const datetime = new Date().toISOString().replace(/[-:.]/g, "");
+        const filename = `audio.wav`;
+        downloadLink.download = filename;
+        downloadLink.href = URL.createObjectURL(blob);
+        document.querySelector('#datetime').textContent = datetime;
+    };
+
+    recorder.stop();
+
+}
 
 

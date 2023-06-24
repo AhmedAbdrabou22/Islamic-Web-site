@@ -16,9 +16,6 @@
 
     <title>Document</title>
 </head>
-
-<body class="body">
-
     <!--Start of Header-->
 
     <section class="header">
@@ -173,7 +170,7 @@
 
 
 
-    <!-- <div class="showAyat">
+    <div class="showAyat">
         <div class="ayatForShow">
 
         </div>
@@ -183,7 +180,7 @@
         <div class="errors">
 
         </div>
-    </div> -->
+    </div>
 
     <section class="ayat-pop3">
         <div class="b">
@@ -230,7 +227,27 @@
         <div class="decoderIt">
             <button id="start-decode">Start Process</button>
         </div>
+        <div id="result">
+
+        </div>
     </section>
+
+
+
+
+    <div class="redit">
+        <h2>تحليل الايه القرانيه بالملف الصوتي المخزن</h2>
+        <div class="hr"></div>
+        <div class="hr2"></div>
+        
+        <div class="s">
+            <audio controls id="audio"></audio>
+            <button onclick="startRecording()" class="start">Start Recording</button>
+            <button onclick="stopRecording()" id="stop">Stop Recording</button>
+            <a download="audio<span id='datetime'></span>.wav" id="downloadLink">Download</a>
+        </div>
+
+    </div>
 
 
 
